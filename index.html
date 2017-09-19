@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Rick O. Gilmore" />
+  <title>Data Sharing &amp; Reproducibility</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="libs/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Data Sharing &amp; Reproducibility</h1>
+    <h2 class="author">Rick O. Gilmore</h2>
+    <h3 class="date">2017-09-19 16:04:50</h3>
+</section>
+
+<section><section id="preliminaries" class="titleslide slide level1"><h1>Preliminaries</h1></section><section class="slide level2">
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/NSF_Logo.PNG" height=250px> <img src="https://science.nichd.nih.gov/confluence/download/attachments/34472103/NICHD-vertical-2-color.png?version=1&modificationDate=1477410070000&api=v2" height=250px> </br> <img src="https://sloan.org/storage/app/media/Logos/Sloan-Logo-stacked-black-web.png" height-250px></p>
+<aside class="notes">
+<p>I thank NSF, NICHD, SRCD, and the Sloan Foundation for support.</p>
+</aside>
+</section><section id="about-me" class="slide level2">
+<h1>About me</h1>
+<ul>
+<li>Associate Professor of Psychology</li>
+<li>Interests in brain development, perceptual and cognitive development, big data, open science,</li>
+<li>Inaugural Director of Human Imaging, Social, Life, &amp; Engineering Sciences Imaging Center (<a href="http://imaging.psu.edu">SLEIC</a>)</li>
+<li>Co-founder of the <a href="http://firstfamilies.la.psu.edu/front-page">FIRSt Families</a> database</li>
+<li>Co-founder of the <a href="http://databrary.org">Databrary.org</a> data library</li>
+</ul>
+</section></section>
+<section><section id="why-should-we-care" class="titleslide slide level1"><h1>Why should we care?</h1></section><section class="slide level2">
+
+<iframe width="800" height="600" src="https://www.youtube.com/embed/N2zK3sAtr-4?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+<aside class="notes">
+<p>Data Sharing and Management Snafu in 3 Short Acts.</p>
+</aside>
+</section><section id="data-sharing" class="slide level2">
+<h1>Data sharing</h1>
+<ul>
+<li class="fragment">is easier than most PIs think</li>
+<li class="fragment">improves the reproducibility and robustness of research</li>
+<li class="fragment">maximizes benefits of participation in research</li>
+<li class="fragment">can be accomplished for most types of data with appropriate planning and permission</li>
+<li class="fragment">is increasingly mandatory for funders and journals</li>
+<li class="fragment">is both a PI and institutional responsibility</li>
+</ul>
+</section><section id="data-hoarding" class="slide level2">
+<h1>Data hoarding</h1>
+<ul>
+<li>is the norm in some fields (e.g., psychology &amp; neuroscience)</li>
+<li>is problematic without <em>very</em> good reasons</li>
+<li>undermines the reproducibility of research</li>
+<li>wastes resources, time, &amp; energy</li>
+</ul>
+</section><section id="overview" class="slide level2">
+<h1>Overview</h1>
+<ul>
+<li>The reproducibility “crisis”</li>
+<li>The “crisis” in psychology</li>
+<li>Challenges to more open data sharing</li>
+<li>Some solutions</li>
+<li>Institutional responsibilities</li>
+</ul>
+</section></section>
+<section><section id="the-reproducibility-crisis" class="titleslide slide level1"><h1>The reproducibility “crisis”</h1></section><section id="is-there-a-reproducibility-crisis" class="slide level2">
+<h1>Is there a reproducibility crisis?</h1>
+<ul>
+<li class="fragment">Yes, a significant crisis</li>
+<li class="fragment">Yes, a slight crisis</li>
+<li class="fragment">No crisis</li>
+<li class="fragment">Don’t know</li>
+</ul>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=550px> </br> <small> (<a href="http://doi.org/10.1038/533452a">Baker, 2016</a>) </small></p>
+</div>
+<aside class="notes">
+<p>Nature conducted a survey of some 1,600 scientists in 2016. They were asked this question and a few others. Here are the results.</p>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://www.nature.com/polopoly_fs/7.36718.1464174471!/image/reproducibility-graphic-online3.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online3.jpg"" height=600px> </br> <small>(<a href="http://doi.org/10.1038/533452a">Baker, 2016</a>)</small></p>
+</div>
+<aside class="notes">
+
+</aside>
+</section><section id="methods-reproducibility" class="slide level2">
+<h1><em>Methods</em> reproducibility</h1>
+<ul>
+<li>Enough details about materials &amp; methods recorded (&amp; reported)</li>
+<li>Same results with same materials &amp; methods</li>
+</ul>
+<p><small>(<a href="http://doi.org/10.1126/scitranslmed.aaf5027">Goodman et al., 2016</a>)</small></p>
+<aside class="notes">
+<p>Goodman et al. advocate a new lexicon for reproducibility where…</p>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://lh6.ggpht.com/_KVa1Tk_k1BU/TTjL-RSY_eI/AAAAAAAABtg/VQIfae1_wtQ/hit_thumb%5B3%5D.jpg?imgmax=800" height=550></p>
+</div>
+<aside class="notes">
+<p>I like to call this the “hit by a truck” scenario.</p>
+</aside>
+</section><section id="results-reproducibility" class="slide level2">
+<h1><em>Results</em> reproducibility</h1>
+<ul>
+<li>Same results from independent study</li>
+</ul>
+<p><small>(<a href="http://doi.org/10.1126/scitranslmed.aaf5027">Goodman et al., 2016</a>)</small></p>
+<aside class="notes">
+<p>Goodman et al. advocate a new lexicon for reproducibility where…</p>
+</aside>
+</section><section id="inferential-reproducibility" class="slide level2">
+<h1><em>Inferential</em> reproducibility</h1>
+<ul>
+<li>Same inferences from one or more studies or reanalyses</li>
+</ul>
+<p><small>(<a href="http://doi.org/10.1126/scitranslmed.aaf5027">Goodman et al., 2016</a>)</small></p>
+<aside class="notes">
+<p>Goodman et al. advocate a new lexicon for reproducibility where…</p>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" height=600px> </br> <small>(<a href="http://doi.org/10.1038/533452a">Baker, 2016</a>)</small></p>
+</div>
+<aside class="notes">
+<p>These definitions help put some of the presumed causes into perspective.</p>
+</aside>
+</section><section id="reproducibility-crisis" class="slide level2">
+<h1>Reproducibility crisis</h1>
+<ul>
+<li>Not just psychology</li>
+<li>“Hard” sciences, too</li>
+<li>Data collection to statistical analysis to reporting to publishing</li>
+<li>Ethical urgency</li>
+</ul>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="https://cdn.shopify.com/s/files/1/0877/5762/products/Rigor_Mortis_1024x1024.jpg?v=1491240110" height=550px/></p>
+</div>
+<aside class="notes">
+<p>Clearly, the significant or slight crisis in reproducibility extends across scientific domains. Indeed, the NPR science reporter Richard Harris in a book published earlier this year said that sloppy biomedical research creates worthless cures, crushes hope, costs billions. But rather than cast aspersions on other fields, let me own the sins of my own.</p>
+</aside>
+</section></section>
+<section><section id="origins-of-the-crisis-in-psychology-neuroscience" class="titleslide slide level1"><h1>Origins of the crisis in psychology &amp; neuroscience</h1></section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://press.princeton.edu/images/k10970.gif" height=500px></p>
+</div>
+<aside class="notes">
+<p>But rather than cast aspersions on other fields, let me focus on my own field’s deadly sins, as cognitive neuroscientist Chris Chambers put it.</p>
+</aside>
+</section><section id="the-sin-of-unreliability" class="slide level2">
+<h1>The sin of unreliability</h1>
+<div class="centered">
+<p><img src="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&h=1536&w=1536&s=cb3b9e51ea5fef6fdc229fb24b740b7d" height=500px></p>
+</div>
+</section><section id="studies-are-underpowered" class="slide level2">
+<h1>Studies are underpowered</h1>
+<div class="centered">
+<p><img src="http://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2000797.g003&type=large" height=500px></p>
+<p><small>(<a href="http://doi.org/10.1371/journal.pbio.2000797">Szucs &amp; Ioannides, 2017</a>)</small></p>
+</div>
+<aside class="notes">
+<p>As Szucs and Ioannides have shown based on an analysis of more than 10,000 papers in the cognitive neuroscience literature, sample sizes are small, and the probability of false negatives is high, especially for small to medium effect sizes.</p>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<blockquote>
+<p>“Assuming a realistic range of prior probabilities for null hypotheses, false report probability is likely to exceed 50% for the whole literature.”</p>
+</blockquote>
+<p><small>(<a href="http://doi.org/10.1371/journal.pbio.2000797">Szucs &amp; Ioannides, 2017</a>)</small></p>
+</div>
+<aside class="notes">
+<p>So, this means that we may not know what we think we know.</p>
+</aside>
+</section><section id="the-sin-of-hoarding" class="slide level2">
+<h1>The sin of hoarding…</h1>
+<div class="centered">
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/wicherts_2006_amp_61_7_726_fig1a.jpg" height=500px></p>
+<p><small>(<a href="http://doi.org/10.1037/0003-066X.61.7.726">Wicherts et al., 2006</a>)</small></p>
+</div>
+</section><section id="the-sin-of-corruptibility" class="slide level2">
+<h1>The sin of corruptibility…</h1>
+<div class="centered">
+<p><a href="http://science.sciencemag.org/content/348/6239/1100.2"> <img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/lacour-green.jpg" height=450px/> </a></p>
+<p><small>(<a href="http://doi.org/10.1126/science.1256151">LaCour &amp; Green, 2014</a>)</small></p>
+</div>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="http://pubman.mpdl.mpg.de/pubman/item/escidoc:1569964:8/component/escidoc:1569966/Stapel_Investigation_Final_report.pdf"> <img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/flawed-science-stapel.jpg" height=500px> </a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Stapel was Dean of the School of Social and Behavioral Sciences at Tilburg University, teacher of Scientific Ethics course</li>
+<li>Fraud investigation launched when 3 grad students noticed anomalies – duplicate entries in data tables</li>
+<li>Stapel confessed, lost position, gave up Ph.D., wrote a book</li>
+</ul>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="http://www.sciencemag.org/news/2012/09/harvard-psychology-researcher-committed-fraud-us-investigation-concludes"> <img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/hauser-misconduct-science.jpg" height=550px> </a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Marc Hauser</li>
+<li>Evolutionary/Comparative Psychologist, Professor at Harvard</li>
+<li>Resigned 2011 after internal investigation found him responsible for research misconduct</li>
+<li>Details see <a href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-12-149.html">2012 report by NIH Office of Research Integrity (ORI)</a> and <a href="http://archive.boston.com/whitecoatnotes/2012/09/05/marc-hauser-responds-federal-finding-scientific-misconduct/spzRWEVIPKA4BUu8wi8t8J/story.html">Hauser’s response</a>.</li>
+</ul>
+</aside>
+</section><section id="the-sin-of-hurrying" class="slide level2">
+<h1>The sin of hurrying…</h1>
+<div class="centered">
+<p><img src="https://static-content.springer.com/image/art%3A10.3758%2Fs13428-015-0664-2/MediaObjects/13428_2015_664_Fig3_HTML.gif" height=550px></p>
+</div>
+<p><small>(<a href="http://doi.org/10.3758/s13428-015-0664-2">Nuijten et al., 2015</a>)</small></p>
+<aside class="notes">
+<p>Statistical reporting errors in the published literature are more common that many might think.</p>
+</aside>
+</section><section id="in-our-defense" class="slide level2">
+<h1>In our defense…</h1>
+</section><section id="psychology-is-harder-than-physics" class="slide level2">
+<h1>Psychology is harder than physics</h1>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/psych-harder-1.jpg" width=800px/></p>
+</div>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/psych-harder-2.jpg" width=800px/></p>
+</div>
+</section></section>
+<section><section id="challenges-to-sharing" class="titleslide slide level1"><h1>Challenges to sharing</h1></section><section id="belmont-principle-of-beneficence" class="slide level2">
+<h1><a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html">Belmont principle</a> of Beneficence</h1>
+<ul>
+<li class="fragment">Data sharing may pose risk of loss of privacy &amp; confidentiality</li>
+<li class="fragment"><strong>But data sharing increases value</strong></li>
+</ul>
+</section><section id="belmont-principle-of-autonomy" class="slide level2">
+<h1><a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html">Belmont principle</a> of Autonomy</h1>
+<ul>
+<li class="fragment">Data sharing may pose risk of unintended use of data</li>
+<li class="fragment"><strong>But participants should participate in decisionmaking</strong></li>
+</ul>
+</section><section id="belmont-principle-of-justice" class="slide level2">
+<h1><a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html">Belmont principle</a> of Justice</h1>
+<ul>
+<li>Costs of research participation should be equitable</li>
+<li><strong>Benefits</strong> of research participation should be equitable</li>
+</ul>
+</section><section id="what-data-are-you-collecting" class="slide level2">
+<h1><em>What</em> data are you collecting?</h1>
+<ul>
+<li>Personally identifying or sensitive data?</li>
+<li>What risks does data sharing pose?</li>
+<li>How should data be protected?</li>
+</ul>
+</section><section id="where-will-you-share-data" class="slide level2">
+<h1><em>Where</em> will you share data?</h1>
+<ul>
+<li>Researcher/lab/university server</li>
+<li>Supplemental material linked to journal article</li>
+<li>Data repository</li>
+</ul>
+</section><section id="who-will-should-have-access" class="slide level2">
+<h1><em>Who</em> will (&amp; should) have access?</h1>
+<ul>
+<li>Public</li>
+<li>Community of authorized individuals (researchers)</li>
+<li>Individuals selected by repository</li>
+<li>Individuals selected by data owner</li>
+</ul>
+</section><section id="what-have-participants-been-told-approved-understood" class="slide level2">
+<h1>What have participants been told, approved, understood?</h1>
+<ul>
+<li>What data collected, what will be shared</li>
+<li>Who will have access</li>
+<li>Where stored, how accessed</li>
+<li>Purposes of use, types of questions</li>
+<li>Shared for how long</li>
+</ul>
+</section><section id="statutory-regulatory-or-contractual-restrictions" class="slide level2">
+<h1>Statutory, regulatory, or contractual restrictions?</h1>
+<ul>
+<li>Students (<a href="https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html">FERPA</a>)</li>
+<li>Health (<a href="https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html">HIPAA</a>)</li>
+<li>From Federal agencies (<a href="https://www.census.gov/history/www/reference/privacy_confidentiality/title_13_us_code.html">Title 13</a>, <a href="https://www.law.cornell.edu/uscode/text/26">Title 26</a>)</li>
+<li>Proprietary data</li>
+</ul>
+</section><section id="benefits-of-sharing-vs.risks" class="slide level2">
+<h1>Benefits (of sharing) vs. risks</h1>
+<ul>
+<li>How useful are data?</li>
+<li>How sensitive are data?</li>
+<li>How likely is it that reidentification could be achieved, and by whom?</li>
+</ul>
+</section><section id="clarifying-risk-scenarios" class="slide level2">
+<h1>Clarifying risk scenarios</h1>
+<ul>
+<li>Reidentification by participants themselves
+<ul>
+<li>Can be harmful, e.g. if dataset contains uncommunicated health risk information</li>
+</ul></li>
+<li>Reidentification by insider</li>
+<li>Reidentification by targeted search (nemesis scenario)</li>
+<li>Reidentification by mass matching (dystopian AI scenario)</li>
+</ul>
+</section><section id="mitigating-risk" class="slide level2">
+<h1>Mitigating risk</h1>
+<ul>
+<li>Assess disclosure risk</li>
+<li>Modify data
+<ul>
+<li>Aggregate or censor sensitive variables</li>
+<li>Aggregate or censor secondary identifying variables</li>
+<li>Perturb or add noise to variables</li>
+</ul></li>
+</ul>
+</section><section id="mitigating-risk-1" class="slide level2">
+<h1>Mitigating risk</h1>
+<ul>
+<li>Restricting access
+<ul>
+<li>Data enclaves (e.g., Census data)</li>
+<li>Virtual data enclaves</li>
+</ul></li>
+</ul>
+</section><section id="case-study-openneuro.org" class="slide level2">
+<h1>Case study: <a href="http://openneuro.org">OpenNeuro.org</a></h1>
+<div class="centered">
+<p><a href="http://openneuro.org"> <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.org.jpg" height=500px> </a></p>
+</div>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="https://openneuro.org/faq"> <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.anyrestrictions.jpg" width=800px></p>
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.removefacial.jpg" width=800px> </a></p>
+</div>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="https://openneuro.org/faq"> <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.18moembargo.jpg" width=800px> </a></p>
+</div>
+</section></section>
+<section><section id="sharing-identifiable-data" class="titleslide slide level1"><h1>Sharing <em>identifiable data</em></h1></section><section class="slide level2">
+
+<div class="centered">
+<p><img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/databrary.splash.jpg"
+</br> <small><a href="http://databrary.org">databrary.org</a></small></p>
+</div>
+</section><section id="databrarys-charge" class="slide level2">
+<h1>Databrary’s charge</h1>
+<ul>
+<li>Share identifiable data (video &amp; audio recordings, individual metadata)
+<ul>
+<li>Unaltered to exploit inherent richness for reuse</li>
+</ul></li>
+</ul>
+</section><section id="databrarys-charge-1" class="slide level2">
+<h1>Databrary’s charge</h1>
+<ul>
+<li>Share across studies and researchers
+<ul>
+<li>Not on a study-by-study or PI-by-PI basis</li>
+</ul></li>
+</ul>
+</section><section id="databrarys-charge-2" class="slide level2">
+<h1>Databrary’s charge</h1>
+<ul>
+<li>Share <em>consistently</em>
+<ul>
+<li>Same permission structure</li>
+<li>Same metadata</li>
+</ul></li>
+<li>Store and serve data securely</li>
+</ul>
+</section><section id="databrarys-solutions" class="slide level2">
+<h1>Databrary’s solutions</h1>
+<ul>
+<li>Share identifiable data <em>with permission</em>
+<ul>
+<li>Template sharing permission language</li>
+<li><del><em>ad hoc</em> video/photo releases</del> standard sharing levels</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="https://www.databrary.org/access/guide/investigators/release/release-levels.html"> <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.release.levels.jpg" width=800px/> </a></p>
+</div>
+</section><section id="seeking-permission-to-share" class="slide level2">
+<h1>Seeking <a href="https://www.databrary.org/access/guide/investigators/release.html">permission to share</a></h1>
+<div class="centered">
+<video controls>
+<source src="mov/example-video-1.mp4" type="video/mp4"> Your browser does not support the video tag.
+</video>
+</div>
+</section><section id="databrarys-solutions-1" class="slide level2">
+<h1>Databrary’s solutions</h1>
+<ul>
+<li>Open sharing among <em>authorized researchers</em>, not public
+<ul>
+<li>Formal (institution-approved &amp; signed) access agreement</li>
+</ul></li>
+</ul>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><a href="https://www.databrary.org/access/policies/agreement.html"> <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.access.agreement.jpg" width=800px/> </a></p>
+</div>
+<aside class="notes">
+<p>Every researcher who wants access to Databrary must have formal written approval from their institution.</p>
+</aside>
+</section><section class="slide level2">
+
+<div class="centered">
+<p><img src="http://www.jonbachelor.com/uploads/1/1/3/3/113343/1093317_orig.jpg?412" height=550px></p>
+</div>
+<aside class="notes">
+<p>“Bumps in the road…”</p>
+</aside>
+</section><section class="slide level2">
+
+<ul>
+<li>Laws differ among countries</li>
+<li>Comfort with data sharing varies among institutions</li>
+<li>“Cloud” storage vs. institutionally housed
+<ul>
+<li>Store data (but not share) data for which no permission has been given?</li>
+</ul></li>
+<li>Role of repositories
+<ul>
+<li>“Check” IRB/ethics training status or delegate responsibility to institutions</li>
+</ul></li>
+</ul>
+</section><section id="my-opinion-gilmore-kennedy-adolph-2017" class="slide level2">
+<h1>My opinion (<a href="http://psyarxiv.com/kew8u">Gilmore, Kennedy, &amp; Adolph, 2017</a>)</h1>
+<ul>
+<li>Biggest obstacle to more open sharing is cultural, not technical</li>
+<li>Planning to share easier than <em>post hoc</em>
+<ul>
+<li><strong>Everyone</strong> should be preparing to share</li>
+<li>Share what data, share where, for how long, for what purposes?</li>
+</ul></li>
+<li>Seeking permission to share should be common practice
+<ul>
+<li>Even if data aren’t sensitive and/or plan to de-identify</li>
+<li>Can’t share (easily) if you don’t ask</li>
+</ul></li>
+</ul>
+</section><section id="models-for-data-sharing-permission" class="slide level2">
+<h1>Models for data sharing permission</h1>
+<ul>
+<li>Separate consent to participate from permission to share
+<ul>
+<li>Same protocol, two different forms</li>
+<li>Two different protocols</li>
+</ul></li>
+<li>Combine permission to share with consent to participate</li>
+</ul>
+</section></section>
+<section><section id="institutional-roles" class="titleslide slide level1"><h1>Institutional roles</h1></section><section id="institutions" class="slide level2">
+<h1>Institutions</h1>
+<ul>
+<li>(Often) own data, although PIs don’t always know it</li>
+<li>Have responsibilities under Federal guidelines to help PIs share data</li>
+</ul>
+</section><section class="slide level2">
+
+<blockquote>
+<p>“Investigators are expected to share with other researchers, at no more than incremental cost and within a reasonable time, the primary data, samples, physical collections and other supporting materials created or gathered in the course of work under NSF grants. <strong>Grantees are expected to encourage and facilitate such sharing.</strong>”</p>
+</blockquote>
+<p>– NSF, Dissemination and Sharing of Research Results, <a href="https://www.nsf.gov/bfa/dias/policy/dmp.jsp" class="uri">https://www.nsf.gov/bfa/dias/policy/dmp.jsp</a></p>
+</section><section id="institutions-1" class="slide level2">
+<h1>Institutions</h1>
+<ul>
+<li>Should partner with PIs
+<ul>
+<li>to make planning for data sharing part of the grant seeking &amp; reporting process</li>
+<li>to ensure data are as well-curated and managed as are the $</li>
+</ul></li>
+</ul>
+</section><section id="compliance-officeirb-role" class="slide level2">
+<h1>Compliance office/IRB role</h1>
+<ul>
+<li class="fragment">Data <del>destruction</del> sharing in secure repository for <del>limited</del> indefinite period</li>
+<li class="fragment">Support <del>narrow</del> broad secondary use cases</li>
+<li class="fragment"><del>Require</del> Discourage reconsent of minors at age of majority unless data <em>highly</em> sensitive</li>
+<li class="fragment">Implement consistent treatment of similar data types</li>
+<li class="fragment">Encourage use of templates</li>
+</ul>
+</section><section id="progress-toward-standard-templates" class="slide level2">
+<h1>Progress toward standard templates</h1>
+<ul>
+<li>Databrary permission to share <a href="https://www.databrary.org/access/guide/investigators/release.html">templates</a></li>
+<li><a href="https://www.icpsr.umich.edu/icpsrweb/content/datamanagement/confidentiality/conf-language.html">ICPSR</a> language</li>
+<li><a href="https://open-brain-consent.readthedocs.io/en/latest/#">Open Brain Consent</a></li>
+<li><a href="https://osf.io/r5ufz/">New initiative</a> : Databrary + AERA + ICPSR + QDR + OpenNeuro + …</li>
+</ul>
+</section></section>
+<section><section id="in-summary" class="titleslide slide level1"><h1>In summary…</h1></section><section id="data-sharing-1" class="slide level2">
+<h1>Data sharing</h1>
+<ul>
+<li class="fragment">is easier than most PIs think</li>
+<li class="fragment">improves the reproducibility and robustness of research</li>
+<li class="fragment">maximizes benefits of participation in research</li>
+<li class="fragment">is increasingly mandatory for funders and journals</li>
+<li class="fragment">can be accomplished for most types of data with appropriate planning and permission</li>
+<li class="fragment">is both a PI and institutional responsibility</li>
+<li class="fragment">upholds scientific ideals</li>
+</ul>
+</section><section id="thank-you" class="slide level2 vcenter flexbox">
+<h1>Thank you</h1>
+<h3 id="rogilmorepsu.edu"><a href="mailto:rogilmore@psu.edu">rogilmore@psu.edu</a></h3>
+<h3 id="gilmore-lab.github.io"><a href="http://gilmore-lab-github.io">gilmore-lab.github.io</a></h3>
+</section><section id="stack" class="slide level2">
+<h1>Stack</h1>
+<p>This talk was produced on 2017-09-19 in <a href="http://rstudio.com">RStudio</a> using R Markdown and the reveal.JS framework. The code and materials used to generate the slides may be found at <a href="https://github.com/gilmore-lab/psu-sari-2017-09-28/" class="uri">https://github.com/gilmore-lab/psu-sari-2017-09-28/</a>. Information about the R Session that produced the code is as follows:</p>
+<pre><code>## R version 3.4.1 (2017-06-30)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] DiagrammeR_0.9.2 revealjs_0.9    
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.12       compiler_3.4.1     RColorBrewer_1.1-2
+##  [4] influenceR_0.1.0   plyr_1.8.4         bindr_0.1         
+##  [7] viridis_0.4.0      tools_3.4.1        digest_0.6.12     
+## [10] jsonlite_1.5       viridisLite_0.2.0  gtable_0.2.0      
+## [13] evaluate_0.10.1    tibble_1.3.3       rgexf_0.15.3      
+## [16] pkgconfig_2.0.1    rlang_0.1.2        igraph_1.1.2      
+## [19] rstudioapi_0.6     yaml_2.1.14        bindrcpp_0.2      
+## [22] gridExtra_2.2.1    downloader_0.4     dplyr_0.7.2       
+## [25] stringr_1.2.0      knitr_1.17         htmlwidgets_0.9   
+## [28] hms_0.3            grid_3.4.1         rprojroot_1.2     
+## [31] glue_1.1.1         R6_2.2.2           Rook_1.1-1        
+## [34] XML_3.98-1.9       rmarkdown_1.6      ggplot2_2.2.1     
+## [37] tidyr_0.6.3        purrr_0.2.3        readr_1.1.1       
+## [40] magrittr_1.5       backports_1.1.0    scales_0.5.0      
+## [43] htmltools_0.3.6    assertthat_0.2.0   colorspace_1.3-2  
+## [46] brew_1.0-6         stringi_1.1.5      visNetwork_2.0.1  
+## [49] lazyeval_0.2.0     munsell_0.4.3</code></pre>
+</section></section>
+    </div>
+  </div>
+
+  <script src="libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'libs/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

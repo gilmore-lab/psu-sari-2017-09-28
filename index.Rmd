@@ -1,0 +1,577 @@
+---
+title: "Data Sharing & Reproducibility"
+author: "Rick O. Gilmore"
+date: "`r Sys.time()`"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    lib_dir: libs
+    incremental: false
+    theme: simple
+    transition: none
+    reveal_plugins: ["notes", "zoom"]
+    reveal_options:
+      slideNumber: true
+      previewLinks: false
+      center: true
+      touch: true
+  ioslides_presentation:
+    widescreen: true
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+if(!("revealjs" %in% installed.packages()[,1])) {
+  install.packages("revealjs") }
+require("revealjs")
+require("DiagrammeR")
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Preliminaries
+
+---
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/87/NSF_Logo.PNG" height=250px>
+<img src="https://science.nichd.nih.gov/confluence/download/attachments/34472103/NICHD-vertical-2-color.png?version=1&modificationDate=1477410070000&api=v2" height=250px>
+</br>
+<img src="https://sloan.org/storage/app/media/Logos/Sloan-Logo-stacked-black-web.png" height-250px>
+
+<div class="notes">
+I thank NSF, NICHD, SRCD, and the Sloan Foundation for support.
+</div>
+
+## About me
+
+- Associate Professor of Psychology
+- Interests in brain development, perceptual and cognitive development, big data, open science, 
+- Inaugural Director of Human Imaging, Social, Life, & Engineering Sciences Imaging Center ([SLEIC](http://imaging.psu.edu))
+- Co-founder of the [FIRSt Families](http://firstfamilies.la.psu.edu/front-page) database
+- Co-founder of the [Databrary.org](http://databrary.org) data library
+
+# Why should we care?
+
+---
+
+<iframe width="800" height="600" src="https://www.youtube.com/embed/N2zK3sAtr-4?rel=0" frameborder="0" allowfullscreen></iframe>
+
+<div class="notes">
+Data Sharing and Management Snafu in 3 Short Acts.
+</div>
+
+## Data sharing 
+
+>- is easier than most PIs think
+>- improves the reproducibility and robustness of research
+>- maximizes benefits of participation in research
+>- can be accomplished for most types of data with appropriate planning and permission
+>- is increasingly mandatory for funders and journals
+>- is both a PI and institutional responsibility
+    
+## Data hoarding 
+
+- is the norm in some fields (e.g., psychology & neuroscience)
+- is problematic without *very* good reasons 
+- undermines the reproducibility of research
+- wastes resources, time, & energy
+
+## Overview
+
+- The reproducibility "crisis"
+- The "crisis" in psychology
+- Challenges to more open data sharing
+- Some solutions
+- Institutional responsibilities
+
+# The reproducibility "crisis"
+
+## Is there a reproducibility crisis?
+
+>- Yes, a significant crisis
+>- Yes, a slight crisis
+>- No crisis
+>- Don't know
+
+---
+
+<div class="centered">
+<img src="http://www.nature.com/polopoly_fs/7.36716.1469695923!/image/reproducibility-graphic-online1.jpeg_gen/derivatives/landscape_630/reproducibility-graphic-online1.jpeg" height=550px>
+</br>
+<small>
+([Baker, 2016](http://doi.org/10.1038/533452a))
+</small>
+</div>
+
+<div class="notes">
+Nature conducted a survey of some 1,600 scientists in 2016. They were asked this question and a few others. Here are the results.
+</div>
+
+---
+
+<div class="centered">
+<img src="http://www.nature.com/polopoly_fs/7.36718.1464174471!/image/reproducibility-graphic-online3.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online3.jpg"" height=600px>
+</br>
+<small>([Baker, 2016](http://doi.org/10.1038/533452a))</small>
+</div>
+
+<div class="notes">
+</div>
+
+## *Methods* reproducibility
+
+- Enough details about materials & methods recorded (& reported)
+- Same results with same materials & methods
+
+<small>([Goodman et al., 2016](http://doi.org/10.1126/scitranslmed.aaf5027))</small>
+
+<div class="notes">
+Goodman et al. advocate a new lexicon for reproducibility where...
+</div>
+
+---
+
+<div class="centered">
+<img src="http://lh6.ggpht.com/_KVa1Tk_k1BU/TTjL-RSY_eI/AAAAAAAABtg/VQIfae1_wtQ/hit_thumb%5B3%5D.jpg?imgmax=800" height=550>
+</div>
+
+<div class="notes">
+I like to call this the "hit by a truck" scenario.
+</div>
+
+## *Results* reproducibility
+
+- Same results from independent study
+
+<small>([Goodman et al., 2016](http://doi.org/10.1126/scitranslmed.aaf5027))</small>
+
+<div class="notes">
+Goodman et al. advocate a new lexicon for reproducibility where...
+</div>
+
+## *Inferential* reproducibility
+
+- Same inferences from one or more studies or reanalyses
+    
+<small>([Goodman et al., 2016](http://doi.org/10.1126/scitranslmed.aaf5027))</small>
+
+<div class="notes">
+Goodman et al. advocate a new lexicon for reproducibility where...
+</div>
+
+---
+
+<div class="centered">
+<img src="http://www.nature.com/polopoly_fs/7.36719.1464174488!/image/reproducibility-graphic-online4.jpg_gen/derivatives/landscape_630/reproducibility-graphic-online4.jpg" height=600px>
+</br>
+<small>([Baker, 2016](http://doi.org/10.1038/533452a))</small>
+</div>
+
+<div class="notes">
+These definitions help put some of the presumed causes into perspective.
+</div>
+
+## Reproducibility crisis
+
+- Not just psychology
+- "Hard" sciences, too
+- Data collection to statistical analysis to reporting to publishing
+- Ethical urgency
+
+---
+
+<div class="centered">
+<img src="https://cdn.shopify.com/s/files/1/0877/5762/products/Rigor_Mortis_1024x1024.jpg?v=1491240110" height=550px/>
+</div>
+
+<div class="notes">
+Clearly, the significant or slight crisis in reproducibility extends across scientific domains. 
+Indeed, the NPR science reporter Richard Harris in a book published earlier this year said that sloppy biomedical research creates worthless cures, crushes hope, costs billions.
+But rather than cast aspersions on other fields, let me own the sins of my own.
+</div>
+
+# Origins of the crisis in psychology & neuroscience
+
+---
+
+<div class="centered">
+<img src="http://press.princeton.edu/images/k10970.gif" height=500px>
+</div>
+
+<div class="notes">
+But rather than cast aspersions on other fields, let me focus on my own field's deadly sins, as cognitive neuroscientist Chris Chambers put it.
+</div>
+
+## The sin of unreliability
+
+<div class="centered">
+<img src="https://i.reddituploads.com/cfb6336d162f4b908cb6715d3da752b5?fit=max&h=1536&w=1536&s=cb3b9e51ea5fef6fdc229fb24b740b7d" height=500px>
+</div>
+
+## Studies are underpowered
+
+<div class="centered">
+<img src="http://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2000797.g003&type=large" height=500px>
+
+<small>([Szucs & Ioannides, 2017](http://doi.org/10.1371/journal.pbio.2000797))</small>
+</div>
+
+<div class="notes">
+As Szucs and Ioannides have shown based on an analysis of more than 10,000 papers in the cognitive neuroscience literature, sample sizes are small, and the probability of false negatives is high, especially for small to medium effect sizes.
+</div>
+
+---
+
+<div class="centered">
+> "Assuming a realistic range of prior probabilities for null hypotheses, false report probability is likely to exceed 50% for the whole literature."
+
+<small>([Szucs & Ioannides, 2017](http://doi.org/10.1371/journal.pbio.2000797))</small>
+</div>
+
+<div class="notes">
+So, this means that we may not know what we think we know.
+</div>
+
+## The sin of hoarding...
+
+<div class="centered">
+<img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/wicherts_2006_amp_61_7_726_fig1a.jpg" height=500px>
+
+<small>([Wicherts et al., 2006](http://doi.org/10.1037/0003-066X.61.7.726))</small>
+</div>
+
+## The sin of corruptibility...
+
+<div class="centered">
+<a href="http://science.sciencemag.org/content/348/6239/1100.2">
+<img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/lacour-green.jpg" height=450px/>
+</a>
+
+<small>([LaCour & Green, 2014](http://doi.org/10.1126/science.1256151))</small>
+</div>
+
+---
+
+<div class="centered">
+<a href="http://pubman.mpdl.mpg.de/pubman/item/escidoc:1569964:8/component/escidoc:1569966/Stapel_Investigation_Final_report.pdf">
+<img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/flawed-science-stapel.jpg" height=500px>
+</a>
+</div>
+
+<div class="notes">
+- Stapel was Dean of the School of Social and Behavioral Sciences at Tilburg University, teacher of Scientific Ethics course
+- Fraud investigation launched when 3 grad students noticed anomalies -- duplicate entries in data tables
+- Stapel confessed, lost position, gave up Ph.D., wrote a book
+</div>
+
+---
+
+<div class="centered">
+<a href="http://www.sciencemag.org/news/2012/09/harvard-psychology-researcher-committed-fraud-us-investigation-concludes">
+<img src="https://raw.githubusercontent.com/gilmore-lab/psu-data-repro-bootcamp-2017-07-10/master/img/hauser-misconduct-science.jpg" height=550px>
+</a>
+</div>
+
+<div class="notes">
+- Marc Hauser
+- Evolutionary/Comparative Psychologist, Professor at Harvard
+- Resigned 2011 after internal investigation found him responsible for research misconduct
+- Details see [2012 report by NIH Office of Research Integrity (ORI)](https://grants.nih.gov/grants/guide/notice-files/NOT-OD-12-149.html) and [Hauser's response](http://archive.boston.com/whitecoatnotes/2012/09/05/marc-hauser-responds-federal-finding-scientific-misconduct/spzRWEVIPKA4BUu8wi8t8J/story.html). 
+</div>
+
+## The sin of hurrying...
+
+<div class="centered">
+<img src="https://static-content.springer.com/image/art%3A10.3758%2Fs13428-015-0664-2/MediaObjects/13428_2015_664_Fig3_HTML.gif" height=550px>
+</div>
+
+<small>([Nuijten et al., 2015](http://doi.org/10.3758/s13428-015-0664-2))</small>
+
+<div class="notes">
+Statistical reporting errors in the published literature are more common that many might think.
+</div>
+
+## In our defense...
+
+## Psychology is harder than physics
+
+---
+
+<div class="centered">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/psych-harder-1.jpg" width=800px/>
+</div>
+
+---
+
+<div class="centered">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/psych-harder-2.jpg" width=800px/>
+</div>
+
+# Challenges to sharing
+
+## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Beneficence
+    
+>- Data sharing may pose risk of loss of privacy & confidentiality
+>- **But data sharing increases value**
+
+## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Autonomy
+
+>- Data sharing may pose risk of unintended use of data
+>- **But participants should participate in decisionmaking**
+
+## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Justice
+    
+- Costs of research participation should be equitable
+- **Benefits** of research participation should be equitable
+
+## *What* data are you collecting?
+
+- Personally identifying or sensitive data?
+- What risks does data sharing pose?
+- How should data be protected?
+
+## *Where* will you share data?
+
+- Researcher/lab/university server
+- Supplemental material linked to journal article
+- Data repository
+
+## *Who* will (& should) have access?
+
+- Public
+- Community of authorized individuals (researchers)
+- Individuals selected by repository
+- Individuals selected by data owner
+
+## What have participants been told, approved, understood?
+
+- What data collected, what will be shared
+- Who will have access
+- Where stored, how accessed
+- Purposes of use, types of questions
+- Shared for how long
+
+## Statutory, regulatory, or contractual restrictions?
+
+- Students ([FERPA](https://www2.ed.gov/policy/gen/guid/fpco/ferpa/index.html))
+- Health ([HIPAA](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html))
+- From Federal agencies ([Title 13](https://www.census.gov/history/www/reference/privacy_confidentiality/title_13_us_code.html), [Title 26](https://www.law.cornell.edu/uscode/text/26))
+- Proprietary data
+
+## Benefits (of sharing) vs. risks
+
+- How useful are data?
+- How sensitive are data?
+- How likely is it that reidentification could be achieved, and by whom?
+
+## Clarifying risk scenarios
+
+- Reidentification by participants themselves
+    - Can be harmful, e.g. if dataset contains uncommunicated health risk information
+- Reidentification by insider
+- Reidentification by targeted search (nemesis scenario)
+- Reidentification by mass matching (dystopian AI scenario)
+
+## Mitigating risk
+
+- Assess disclosure risk
+- Modify data
+    - Aggregate or censor sensitive variables
+    - Aggregate or censor secondary identifying variables
+    - Perturb or add noise to variables
+
+## Mitigating risk
+
+- Restricting access
+    - Data enclaves (e.g., Census data)
+    - Virtual data enclaves
+
+## Case study: [OpenNeuro.org](http://openneuro.org)
+
+<div class="centered">
+<a href="http://openneuro.org">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.org.jpg" height=500px>
+</a>
+</div>
+
+---
+
+<div class="centered">
+<a href="https://openneuro.org/faq">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.anyrestrictions.jpg" width=800px>
+
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.removefacial.jpg" width=800px>
+</a>
+</div>
+
+---
+
+<div class="centered">
+<a href="https://openneuro.org/faq">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.18moembargo.jpg" width=800px>
+</a>
+</div>
+
+# Sharing *identifiable data*
+
+---
+
+<div class="centered">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-databservatory/master/img/databrary.splash.jpg"
+</br>
+<small>[databrary.org](http://databrary.org)</small>
+</div>
+
+## Databrary's charge
+
+- Share identifiable data (video & audio recordings, individual metadata)
+    - Unaltered to exploit inherent richness for reuse
+    
+## Databrary's charge
+
+- Share across studies and researchers
+    - Not on a study-by-study or PI-by-PI basis
+    
+## Databrary's charge
+
+- Share *consistently*
+    - Same permission structure
+    - Same metadata
+- Store and serve data securely
+
+## Databrary's solutions
+
+- Share identifiable data *with permission*
+    - Template sharing permission language
+    - ~~*ad hoc* video/photo releases~~ standard sharing levels
+    
+---
+
+<div class="centered">
+<a href="https://www.databrary.org/access/guide/investigators/release/release-levels.html">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.release.levels.jpg" width=800px/>
+</a>
+</div>
+
+## Seeking [permission to share](https://www.databrary.org/access/guide/investigators/release.html)
+
+<div class="centered">
+<video controls>
+  <source src="mov/example-video-1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+
+## Databrary's solutions    
+
+- Open sharing among *authorized researchers*, not public
+    - Formal (institution-approved & signed) access agreement
+
+---
+
+<div class="centered">
+<a href="https://www.databrary.org/access/policies/agreement.html">
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.access.agreement.jpg" width=800px/>
+</a>
+</div>
+
+<div class="notes">
+Every researcher who wants access to Databrary must have formal written approval from their institution.
+</div>
+
+---
+
+<div class="centered">
+<img src="http://www.jonbachelor.com/uploads/1/1/3/3/113343/1093317_orig.jpg?412" height=550px>
+</div>
+
+<div class="notes">
+"Bumps in the road..."
+</div>
+
+---
+
+- Laws differ among countries
+- Comfort with data sharing varies among institutions
+- "Cloud" storage vs. institutionally housed
+    - Store data (but not share) data for which no permission has been given?
+- Role of repositories
+    - "Check" IRB/ethics training status or delegate responsibility to institutions
+
+## My opinion ([Gilmore, Kennedy, & Adolph, 2017](http://psyarxiv.com/kew8u))
+
+- Biggest obstacle to more open sharing is cultural, not technical
+- Planning to share easier than *post hoc*
+    - **Everyone** should be preparing to share
+    - Share what data, share where, for how long, for what purposes?
+- Seeking permission to share should be common practice
+    - Even if data aren't sensitive and/or plan to de-identify
+    - Can't share (easily) if you don't ask
+    
+## Models for data sharing permission
+
+- Separate consent to participate from permission to share
+    - Same protocol, two different forms
+    - Two different protocols
+- Combine permission to share with consent to participate
+
+# Institutional roles
+
+## Institutions
+
+- (Often) own data, although PIs don't always know it
+- Have responsibilities under Federal guidelines to help PIs share data
+
+---
+
+> "Investigators are expected to share with other researchers, at no more than incremental cost and within a reasonable time, the primary data, samples, physical collections and other supporting materials created or gathered in the course of work under NSF grants. **Grantees are expected to encourage and facilitate such sharing.**"
+
+-- NSF, Dissemination and Sharing of Research Results, <https://www.nsf.gov/bfa/dias/policy/dmp.jsp>
+
+## Institutions
+
+- Should partner with PIs 
+    - to make planning for data sharing part of the grant seeking & reporting process
+    - to ensure data are as well-curated and managed as are the $
+
+## Compliance office/IRB role
+
+>- Data ~~destruction~~ sharing in secure repository for ~~limited~~ indefinite period
+>- Support ~~narrow~~ broad secondary use cases
+>- ~~Require~~ Discourage reconsent of minors at age of majority unless data *highly* sensitive
+>- Implement consistent treatment of similar data types
+>- Encourage use of templates
+
+## Progress toward standard templates
+
+- Databrary permission to share [templates](https://www.databrary.org/access/guide/investigators/release.html)
+- [ICPSR](https://www.icpsr.umich.edu/icpsrweb/content/datamanagement/confidentiality/conf-language.html) language
+- [Open Brain Consent](https://open-brain-consent.readthedocs.io/en/latest/#)
+- [New initiative](https://osf.io/r5ufz/) : Databrary + AERA + ICPSR + QDR + OpenNeuro + ...
+
+# In summary...
+
+## Data sharing 
+
+>- is easier than most PIs think
+>- improves the reproducibility and robustness of research
+>- maximizes benefits of participation in research
+>- is increasingly mandatory for funders and journals
+>- can be accomplished for most types of data with appropriate planning and permission
+>- is both a PI and institutional responsibility
+>- upholds scientific ideals
+
+## Thank you {.vcenter .flexbox}
+
+### rogilmore@psu.edu
+### [gilmore-lab.github.io](http://gilmore-lab-github.io)
+
+## Stack
+
+This talk was produced on `r Sys.Date()` in [RStudio](http://rstudio.com) using R Markdown and the reveal.JS framework.
+The code and materials used to generate the slides may be found at <https://github.com/gilmore-lab/psu-sari-2017-09-28/>.
+Information about the R Session that produced the code is as follows:
+
+```{r session-info}
+sessionInfo()
+```
