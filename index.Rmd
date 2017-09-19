@@ -1,5 +1,5 @@
 ---
-title: "Data Sharing & Reproducibility"
+title: "Data Sharing & Scientific Reproducibility"
 author: "Rick O. Gilmore"
 date: "`r Sys.time()`"
 output:
@@ -565,6 +565,7 @@ Every researcher who wants access to Databrary must have formal written approval
 
 ### rogilmore@psu.edu
 ### [gilmore-lab.github.io](http://gilmore-lab-github.io)
+### <http://gilmore-lab.github.io/psu-sari-2017-09-28/>
 
 ## Stack
 
