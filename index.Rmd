@@ -1,5 +1,5 @@
 ---
-title: "Data Sharing & Scientific Reproducibility"
+title: "Data sharing, research ethics, & scientific reproducibility"
 author: "Rick O. Gilmore"
 email: "@rogilmore"
 date: "`r Sys.time()`"
@@ -325,7 +325,7 @@ Statistical reporting errors in the published literature are more common that ma
 >- Data sharing may pose risk of unintended use of data
 >- **So participants should participate in decisionmaking**
 
-## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Justic
+## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Justice
     
 - Costs of research participation should be equitable
 - **Benefits** of research participation should be equitable
@@ -374,11 +374,10 @@ Statistical reporting errors in the published literature are more common that ma
 
 ## Clarifying risk scenarios
 
-- Reidentification by participants themselves
-    - Can be harmful, e.g. if dataset contains uncommunicated health risk information
-- Reidentification by insider
-- Reidentification by targeted search (nemesis scenario)
-- Reidentification by mass matching (dystopian AI scenario)
+>- Reidentification by participants themselves
+>- Reidentification by insider
+>- Reidentification by targeted search (nemesis scenario)
+>- Reidentification by mass matching (dystopian AI scenario)
 
 ## Mitigating risk
 
@@ -387,12 +386,6 @@ Statistical reporting errors in the published literature are more common that ma
     - Aggregate or censor sensitive variables
     - Aggregate or censor secondary identifying variables
     - Perturb or add noise to variables
-
-## Mitigating risk
-
-- Restricting access
-    - Data enclaves (e.g., Census data)
-    - Virtual data enclaves
 
 ## Case study: [OpenNeuro.org](http://openneuro.org)
 
@@ -419,6 +412,12 @@ Statistical reporting errors in the published literature are more common that ma
 <img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.18moembargo.jpg" width=800px>
 </a>
 </div>
+
+## Mitigating risk
+
+- Restrict access
+    - Data enclaves (e.g., Census data)
+    - Virtual data enclaves
 
 # Sharing *identifiable data*
 
