@@ -1,6 +1,7 @@
 ---
 title: "Data Sharing & Scientific Reproducibility"
 author: "Rick O. Gilmore"
+email: "@rogilmore"
 date: "`r Sys.time()`"
 output:
   revealjs::revealjs_presentation:
@@ -29,6 +30,8 @@ require("DiagrammeR")
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
+
 # Preliminaries
 
 ---
@@ -45,12 +48,12 @@ I thank NSF, NICHD, SRCD, and the Sloan Foundation for support.
 ## About me
 
 - Associate Professor of Psychology
-- Interests in brain development, perceptual and cognitive development, big data, open science, 
+- Brain development, perceptual and cognitive development, big data, open science 
 - Inaugural Director of Human Imaging, Social, Life, & Engineering Sciences Imaging Center ([SLEIC](http://imaging.psu.edu))
 - Co-founder of the [FIRSt Families](http://firstfamilies.la.psu.edu/front-page) database
 - Co-founder of the [Databrary.org](http://databrary.org) data library
 
-# Why should we care?
+# Why should we care about data sharing?
 
 ---
 
@@ -62,23 +65,26 @@ Data Sharing and Management Snafu in 3 Short Acts.
 
 ## Data sharing 
 
->- is easier than most PIs think
+>- easier than most PIs think
 >- improves the reproducibility and robustness of research
 >- maximizes benefits of participation in research
->- can be accomplished for most types of data with appropriate planning and permission
->- is increasingly mandatory for funders and journals
->- is both a PI and institutional responsibility
+
+## Data sharing...
+
+>- can be accomplished for most types of data with planning and permission
+>- increasingly mandatory for funders and journals
+>- the responsibility of PIs & institutions
     
 ## Data hoarding 
 
-- is the norm in some fields (e.g., psychology & neuroscience)
+- is (sadly) the norm in some fields (e.g., psychology & neuroscience)
 - is problematic without *very* good reasons 
 - undermines the reproducibility of research
 - wastes resources, time, & energy
 
 ## Overview
 
-- The reproducibility "crisis"
+- The reproducibility "crisis" in science
 - The "crisis" in psychology
 - Challenges to more open data sharing
 - Some solutions
@@ -309,20 +315,22 @@ Statistical reporting errors in the published literature are more common that ma
 
 # Challenges to sharing
 
-## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Beneficence
+## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Beneficence
     
 >- Data sharing may pose risk of loss of privacy & confidentiality
 >- **But data sharing increases value**
 
-## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Autonomy
+## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Autonomy
 
 >- Data sharing may pose risk of unintended use of data
->- **But participants should participate in decisionmaking**
+>- **So participants should participate in decisionmaking**
 
-## [Belmont principle](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html) of Justice
+## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Justic
     
 - Costs of research participation should be equitable
 - **Benefits** of research participation should be equitable
+
+## Sharing data ethically
 
 ## *What* data are you collecting?
 
@@ -531,13 +539,14 @@ Every researcher who wants access to Databrary must have formal written approval
 ## Institutions
 
 - Should partner with PIs 
-    - to make planning for data sharing part of the grant seeking & reporting process
-    - to ensure data are as well-curated and managed as are the $
+    - make planning for data sharing part of grant seeking & reporting process
+    - ensure **data** & **$** well-managed
 
 ## Compliance office/IRB role
 
->- Data ~~destruction~~ sharing in secure repository for ~~limited~~ indefinite period
->- Support ~~narrow~~ broad secondary use cases
+>- Data ~~destruction after X years~~ sharing for ~~limited~~ indefinite period
+>- Share data in ~~lab website~~ secure repository
+>- Seek permission for ~~narrow~~ broad secondary use cases
 >- ~~Require~~ Discourage reconsent of minors at age of majority unless data *highly* sensitive
 >- Implement consistent treatment of similar data types
 >- Encourage use of templates
@@ -553,19 +562,22 @@ Every researcher who wants access to Databrary must have formal written approval
 
 ## Data sharing 
 
->- is easier than most PIs think
+>- easier than most PIs think
 >- improves the reproducibility and robustness of research
 >- maximizes benefits of participation in research
->- is increasingly mandatory for funders and journals
->- can be accomplished for most types of data with appropriate planning and permission
->- is both a PI and institutional responsibility
+
+## Data sharing
+
+>- increasingly mandatory for funders and journals
+>- can be accomplished for most types of data with planning & permission
+>- both PI and institutional responsibility
 >- upholds scientific ideals
 
 ## Thank you {.vcenter .flexbox}
 
 ### rogilmore@psu.edu
 ### [gilmore-lab.github.io](http://gilmore-lab-github.io)
-### <http://gilmore-lab.github.io/psu-sari-2017-09-28/>
+### [gilmore-lab.github.io/psu-sari-2017-09-28/](http://gilmore-lab-github.io/psu-sari-2017-09-08/)
 
 ## Stack
 
