@@ -1,7 +1,6 @@
 ---
 title: "Data sharing, research ethics, & scientific reproducibility"
-author: "Rick O. Gilmore"
-email: "@rogilmore"
+author: "Rick Gilmore (rogilmore@psu.edu)"
 date: "`r Sys.time()`"
 output:
   revealjs::revealjs_presentation:
