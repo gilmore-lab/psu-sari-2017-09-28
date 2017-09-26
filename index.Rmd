@@ -534,11 +534,20 @@ Every researcher who wants access to Databrary must have formal written approval
 
 -- NSF, Dissemination and Sharing of Research Results, <https://www.nsf.gov/bfa/dias/policy/dmp.jsp>
 
-## Institutions
+## Institutions should...
 
-- Should partner with PIs 
+- Partner with PIs 
     - make planning for data sharing part of grant seeking & reporting process
     - ensure **data** & **$** well-managed
+    
+## Institutions should...
+
+>- Make research *quality* part of criteria for promotion & advancement
+>- Raise awareness that that reproducibility and research misconduct are genuine concerns
+>- Strengthen research integrity offices, improve training programs, and develop programs to prevent research misconduct
+>- Focus especially on mentoring and **data management**
+
+[Schrag & Purdy, 2017; *Science*](http://doi.org/10.1126/science.aan0859)
 
 ## Compliance office/IRB role
 
