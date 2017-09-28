@@ -29,8 +29,6 @@ require("DiagrammeR")
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
-
 # Preliminaries
 
 ---
@@ -86,9 +84,8 @@ Data Sharing and Management Snafu in 3 Short Acts.
 
 - The reproducibility "crisis" in science
 - The "crisis" in psychology
-- Challenges to more open data sharing
-- Some solutions
-- Institutional responsibilities
+- Challenges to more open data sharing & some solutions
+- Shared responsibilities
 
 # The reproducibility "crisis"
 
@@ -327,10 +324,10 @@ Statistical reporting errors in the published literature are more common that ma
 
 ## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Justice
     
-- Costs of research participation should be equitable
-- **Benefits** of research participation should be equitable
+>- Costs of research participation should be equitable
+>- **Benefits** of research participation should be equitable, as well
 
-## Sharing data ethically
+## How to sharing data ethically
 
 ## *What* data are you collecting?
 
@@ -607,13 +604,24 @@ Every researcher who wants access to Databrary must have formal written approval
 >- easier than most PIs think
 >- improves the reproducibility and robustness of research
 >- maximizes benefits of participation in research
+>- increasingly mandatory for funders and journals
 
 ## Data sharing
 
->- increasingly mandatory for funders and journals
 >- can be accomplished for most types of data with planning & permission
 >- both PI and institutional responsibility
 >- upholds scientific ideals
+>- can be the most ethical thing to do
+
+---
+
+<div class="centered">
+<img src="http://cdn.history.com/sites/2/2014/02/We-Can-Do-It-Rosie-the-Riveter-Wallpaper-2-AB.jpeg" height=500px>
+
+<div class="notes">
+Rosie the Riveter says we can do it. So let's.
+</div>
+</div>
 
 ## Thank you {.vcenter .flexbox}
 
