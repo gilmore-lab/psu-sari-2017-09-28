@@ -44,7 +44,7 @@ knitr::opts_chunk$set(echo = FALSE)
 I thank NSF, NICHD, SRCD, and the Sloan Foundation for support.
 </div>
 
-## About me
+## About
 
 - Associate Professor of Psychology
 - Brain development, perceptual and cognitive development, big data, open science 
@@ -70,16 +70,17 @@ Data Sharing and Management Snafu in 3 Short Acts.
 
 ## Data sharing...
 
->- can be accomplished for most types of data with planning and permission
+>- can be accomplished for most types of data... 
+>- with advance planning and permission
 >- increasingly mandatory for funders and journals
 >- the responsibility of PIs & institutions
     
 ## Data hoarding 
 
-- is (sadly) the norm in some fields (e.g., psychology & neuroscience)
-- is problematic without *very* good reasons 
-- undermines the reproducibility of research
-- wastes resources, time, & energy
+>- is (sadly) the norm in some fields (e.g., psychology & neuroscience)
+>- is problematic without *very* good reasons 
+>- undermines the reproducibility of research
+>- wastes resources, time, & energy
 
 ## Overview
 
@@ -343,11 +344,24 @@ Statistical reporting errors in the published literature are more common that ma
 - Supplemental material linked to journal article
 - Data repository
 
+## *Where* will you share data?
+
+- Researcher/lab/university server
+- Supplemental material linked to journal article
+- **Data repository**
+
 ## *Who* will (& should) have access?
 
 - Public
 - Community of authorized individuals (researchers)
 - Individuals selected by repository
+- Individuals selected by data owner
+
+## *Who* will (& should) have access?
+
+- Public
+- **Community of authorized individuals (researchers)**
+- **Individuals selected by repository**
 - Individuals selected by data owner
 
 ## What have participants been told, approved, understood?
@@ -371,16 +385,15 @@ Statistical reporting errors in the published literature are more common that ma
 - How sensitive are data?
 - How likely is it that reidentification could be achieved, and by whom?
 
-## Clarifying risk scenarios
+## Assessing disclosure risk
 
 >- Reidentification by participants themselves
 >- Reidentification by insider
 >- Reidentification by targeted search (nemesis scenario)
 >- Reidentification by mass matching (dystopian AI scenario)
 
-## Mitigating risk
+## Mitigating disclosure risk
 
-- Assess disclosure risk
 - Modify data
     - Aggregate or censor sensitive variables
     - Aggregate or censor secondary identifying variables
@@ -398,9 +411,9 @@ Statistical reporting errors in the published literature are more common that ma
 
 <div class="centered">
 <a href="https://openneuro.org/faq">
-<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.anyrestrictions.jpg" width=800px>
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.anyrestrictions.jpg" width=1000px>
 
-<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.removefacial.jpg" width=800px>
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.removefacial.jpg" width=1000px>
 </a>
 </div>
 
@@ -408,17 +421,26 @@ Statistical reporting errors in the published literature are more common that ma
 
 <div class="centered">
 <a href="https://openneuro.org/faq">
-<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.18moembargo.jpg" width=800px>
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/openneuro.18moembargo.jpg" width=1000px>
 </a>
 </div>
 
-## Mitigating risk
+---
+
+Q: Does modification diminish value for secondary use?
+
+A: "Defacing" MRI: No; "Defacing" video: Yes
+
+## Mitigating disclosure risk
 
 - Restrict access
     - Data enclaves (e.g., Census data)
     - Virtual data enclaves
 
-# Sharing *identifiable data*
+## Mitigating disclosure risk
+
+- Seek explicit sharing permission
+- Share unaltered with *restricted* audiences
 
 ---
 
@@ -428,34 +450,42 @@ Statistical reporting errors in the published literature are more common that ma
 <small>[databrary.org](http://databrary.org)</small>
 </div>
 
-## Databrary's charge
+---
+
+<img src="https://nyu.databrary.org/web/images/logo/databrary-nav.svg" width=800px>
 
 - Share identifiable data (video & audio recordings, individual metadata)
     - Unaltered to exploit inherent richness for reuse
     
-## Databrary's charge
+---
+
+<img src="https://nyu.databrary.org/web/images/logo/databrary-nav.svg" width=800px>
 
 - Share across studies and researchers
     - Not on a study-by-study or PI-by-PI basis
     
-## Databrary's charge
+---
+
+<img src="https://nyu.databrary.org/web/images/logo/databrary-nav.svg" width=800px>
 
 - Share *consistently*
     - Same permission structure
     - Same metadata
 - Store and serve data securely
 
-## Databrary's solutions
+---
+
+<img src="https://nyu.databrary.org/web/images/logo/databrary-nav.svg" width=800px>
 
 - Share identifiable data *with permission*
     - Template sharing permission language
     - ~~*ad hoc* video/photo releases~~ standard sharing levels
-    
+ 
 ---
 
 <div class="centered">
 <a href="https://www.databrary.org/access/guide/investigators/release/release-levels.html">
-<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.release.levels.jpg" width=800px/>
+<img src="https://raw.githubusercontent.com/gilmore-lab/sips-2017-07-30/master/img/databrary.release.levels.jpg" width=1000px/>
 </a>
 </div>
 
@@ -463,12 +493,14 @@ Statistical reporting errors in the published literature are more common that ma
 
 <div class="centered">
 <video controls>
-  <source src="mov/example-video-1.mp4" type="video/mp4">
+  <source src="https://www.databrary.org/video/example-video-1.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 </div>
 
-## Databrary's solutions    
+---
+
+<img src="https://nyu.databrary.org/web/images/logo/databrary-nav.svg" width=800px>
 
 - Open sharing among *authorized researchers*, not public
     - Formal (institution-approved & signed) access agreement
@@ -510,6 +542,9 @@ Every researcher who wants access to Databrary must have formal written approval
 - Planning to share easier than *post hoc*
     - **Everyone** should be preparing to share
     - Share what data, share where, for how long, for what purposes?
+
+---
+
 - Seeking permission to share should be common practice
     - Even if data aren't sensitive and/or plan to de-identify
     - Can't share (easily) if you don't ask
@@ -542,10 +577,10 @@ Every researcher who wants access to Databrary must have formal written approval
     
 ## Institutions should...
 
->- Make research *quality* part of criteria for promotion & advancement
->- Raise awareness that that reproducibility and research misconduct are genuine concerns
->- Strengthen research integrity offices, improve training programs, and develop programs to prevent research misconduct
->- Focus especially on mentoring and **data management**
+- Make research *quality* part of criteria for promotion & advancement
+- Raise awareness that that reproducibility and research misconduct are genuine concerns
+- Strengthen research integrity offices, improve training programs, and develop programs to prevent research misconduct
+- Focus especially on mentoring and **data management**
 
 [Schrag & Purdy, 2017; *Science*](http://doi.org/10.1126/science.aan0859)
 
@@ -553,7 +588,7 @@ Every researcher who wants access to Databrary must have formal written approval
 
 >- Data ~~destruction after X years~~ sharing for ~~limited~~ indefinite period
 >- Share data in ~~lab website~~ secure repository
->- Seek permission for ~~narrow~~ broad secondary use cases
+>- Encourage seeking permission for ~~narrow~~ broad secondary use cases
 >- ~~Require~~ Discourage reconsent of minors at age of majority unless data *highly* sensitive
 >- Implement consistent treatment of similar data types
 >- Encourage use of templates
