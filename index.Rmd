@@ -315,9 +315,9 @@ Statistical reporting errors in the published literature are more common that ma
 ## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Beneficence
     
 >- Data sharing may pose risk of loss of privacy & confidentiality
->- **But data sharing increases value**
+>- **But data sharing increases value, and participation value should be maximal**
 
-## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Autonomy
+## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Respect for persons
 
 >- Data sharing may pose risk of unintended use of data
 >- **So participants should participate in decisionmaking**
@@ -325,7 +325,7 @@ Statistical reporting errors in the published literature are more common that ma
 ## [Belmont principles](https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html): Justice
     
 >- Costs of research participation should be equitable
->- **Benefits** of research participation should be equitable, as well
+>- **Benefits** of research participation should be equitable
 
 ## How to sharing data ethically
 
@@ -611,7 +611,7 @@ Every researcher who wants access to Databrary must have formal written approval
 >- can be accomplished for most types of data with planning & permission
 >- both PI and institutional responsibility
 >- upholds scientific ideals
->- can be the most ethical thing to do
+>- may be the most ethical thing to do ([Brakewood & Poldrack, 2013](http://dx.doi.org/10.1016/j.neuroimage.2013.02.040))
 
 ---
 
@@ -638,3 +638,5 @@ Information about the R Session that produced the code is as follows:
 ```{r session-info}
 sessionInfo()
 ```
+# References {.smaller}
+
